@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://nxohpybu5mby"]
+
+[ext_resource type="PackedScene" uid="uid://cgpt630dbwlsw" path="res://Scene/wall.tscn" id="1_2tsoq"]
+[ext_resource type="PackedScene" uid="uid://cj4ybyxoljs3w" path="res://Scene/paddle.tscn" id="2_vmt0b"]
+[ext_resource type="Script" path="res://Scene/enemy_paddle.gd" id="3_58be1"]
+[ext_resource type="PackedScene" uid="uid://b4oollp4kot0k" path="res://Scene/ball.tscn" id="4_mbqkn"]
+
+[node name="main" type="Node2D"]
+position = Vector2(-550, -334)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="TopWall" parent="Node" instance=ExtResource("1_2tsoq")]
+position = Vector2(-550, -334)
+
+[node name="BottomWall" parent="Node" instance=ExtResource("1_2tsoq")]
+position = Vector2(-515, 322)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(552, 324)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Paddle" parent="." instance=ExtResource("2_vmt0b")]
+position = Vector2(31, 298)
+
+[node name="EnemyPaddle" parent="." instance=ExtResource("2_vmt0b")]
+position = Vector2(1124, 296)
+script = ExtResource("3_58be1")
+paddle_speed = 35000000
+
+[node name="Ball" parent="." instance=ExtResource("4_mbqkn")]
+position = Vector2(550, 328)
